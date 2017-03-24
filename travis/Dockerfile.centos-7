@@ -6,4 +6,4 @@ RUN yum install -y git epel-release
 RUN yum install -y ansible
 
 # Install Ansible inventory file
-RUN echo -e "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
+RUN printf "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
