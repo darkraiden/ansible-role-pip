@@ -1,5 +1,7 @@
 # Ansible Role Pip
 
+[![Build Status](https://travis-ci.org/darkraiden/ansible-role-pip.svg?branch=master)](https://travis-ci.org/darkraiden/ansible-role-pip)
+
 Install and configure Python Pip.
 
 ## Dependencies
