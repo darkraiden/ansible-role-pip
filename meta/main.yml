@@ -15,7 +15,7 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - all
-    - name: CentOS
+    - name: EL
       versions:
         - 6
         - 7
