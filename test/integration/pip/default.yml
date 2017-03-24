@@ -1,0 +1,6 @@
+---
+
+- hosts: pip
+  become: True
+  roles:
+    - ansible-role-pip

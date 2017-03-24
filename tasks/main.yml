@@ -1,0 +1,19 @@
+---
+
+- name: Check if pip is already installed
+  command: "which {{ pip_command_pip }}"
+  changed_when: False
+  ignore_errors: True
+  register: pip_status
+
+- include: download.yml
+  when: pip_status.rc != 0
+
+- name: Check pip version
+  shell: "{{ pip_command_pip }} --version | awk '{print $2}'"
+  changed_when: False
+  register: pip_installed_version
+  when: pip_version != ""
+
+- include: version.yml
+  when: pip_installed_version.stdout != pip_version

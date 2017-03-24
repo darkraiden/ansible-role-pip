@@ -1,0 +1,7 @@
+---
+
+- name: Install required version of pip
+  pip:
+    name: "{{ pip_command_pip }}"
+    version: "{{ pip_version }}"
+    state: present
