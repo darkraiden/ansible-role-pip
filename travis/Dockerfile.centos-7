@@ -1,5 +1,7 @@
 FROM centos/ruby-22-centos7
 
+USER root
+
 # Install Ansible
 RUN yum install -y git epel-release
 RUN yum install -y ansible
