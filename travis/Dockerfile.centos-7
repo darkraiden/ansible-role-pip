@@ -5,6 +5,8 @@ USER root
 # Install Ansible
 RUN yum install -y git epel-release
 RUN yum install -y ansible
+
+USER default
 RUN gem install serverspec
 
 # Install Ansible inventory file
