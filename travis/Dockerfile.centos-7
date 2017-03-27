@@ -9,6 +9,4 @@ RUN yum install -y ansible
 # Install Ansible inventory file
 RUN printf "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
 
-USER default
-
 RUN /bin/bash -c "gem install serverspec"
