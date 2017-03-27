@@ -6,6 +6,14 @@ env:
     version: 14.04
     init: /sbin/init
     run_opts: ""
+  - distribution: ubuntu
+    version: 16.04
+    init: /sbin/init
+    run_opts: ""
+  - distribution: centos
+    version: 7
+    init: /sbin/init
+    run_opts: ""
 
 services:
   - docker
