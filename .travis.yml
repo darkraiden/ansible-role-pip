@@ -2,12 +2,8 @@
 sudo: required
 
 env:
-  - distribution: ubuntu
-    version: 14.04
-    init: /sbin/init
-    run_opts: ""
-  - distribution: ubuntu
-    version: 16.04
+  - distribution: debian
+    version: jessie
     init: /sbin/init
     run_opts: ""
   - distribution: centos
@@ -35,6 +31,9 @@ script:
 
   # Test role.
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/travis/playbook.yml'
+
+  # Run tests
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm /bin/bash -c "rspec /etc/ansible/roles/role_under_test/test/integration/pip/serverspec/localhost/*"'
 
   # Clean up
   - 'sudo docker stop "$(cat ${container_id})"'
