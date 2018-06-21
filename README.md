@@ -28,7 +28,7 @@ pip_download_dest: /tmp
 Pip filename, download url and temp destination.
 
 ```
-pip_version: 9.0.1
+pip_version: 10.0.1
 ```
 
 Desired pip version to be installed.
@@ -39,7 +39,7 @@ Desired pip version to be installed.
 - hosts: all
   become: True
   roles:
-    - ansible-role-pip
+    - darkraiden.ansible-pip
 ```
 
 ## Test Kitchen
@@ -52,13 +52,18 @@ $ bundle
 
 ### VMs
 
-This kitchen configuration comes with 3 different VMs:
+This kitchen configuration comes with the following docker images:
 
-* centos7
-* trusty
-* xenial
+* centos:7
+* ubuntu:trusty
+* ubuntu:xenial
+* debian:jessie
+* debian:stretch
+* fedora:26
+* fedora:25
+* fedora:24
 
-If you want to test the role using all of those machines, just run the commands below as they are. If you want to test the role on one system only, append to the commands below the VM name.
+If you want to test the role using all of those containers, just run the commands below as they are. If you want to test the role on one system only, append to the commands below the VM name.
 
 e.g.
 
@@ -66,9 +71,9 @@ e.g.
 $ bundle exec kitchen converge trusty
 ```
 
-To converge the `trusty` VM only.
+To converge the `trusty` container only.
 
-### Create the VM
+### Create the Containers
 
 ```
 $ bundle exec kitchen create
@@ -86,9 +91,7 @@ $ bundle exec kitchen converge
 $ bundle exec kitchen verify
 ```
 
-**NB**: To run `verify` the VM must be converged first.
-
-### Destroy the VM
+### Destroy the Containers
 
 ```
 $ bundle exec kitchen destroy
