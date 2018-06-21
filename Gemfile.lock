@@ -9,8 +9,8 @@ GEM
     kitchen-ansible (0.46.3)
       net-ssh (>= 3)
       test-kitchen (~> 1.4)
-    kitchen-vagrant (1.0.2)
-      test-kitchen (~> 1.4)
+    kitchen-docker (2.6.0)
+      test-kitchen (>= 1.0.0)
     librarian (0.1.2)
       highline
       thor (~> 0.15)
@@ -75,10 +75,10 @@ PLATFORMS
 
 DEPENDENCIES
   kitchen-ansible
-  kitchen-vagrant
+  kitchen-docker
   librarian-ansible
   serverspec
   test-kitchen
 
 BUNDLED WITH
-   1.14.4
+   1.16.2

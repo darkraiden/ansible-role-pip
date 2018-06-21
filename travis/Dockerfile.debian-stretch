@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
     software-properties-common \
@@ -7,12 +7,13 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     libssl-dev \
     python-dev \
     python-pip \
-    sudo \
     git \
+    sudo \
+    systemd \
  && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade setuptools && pip install ansible
 
 RUN mkdir -p /etc/ansible && echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
 
-ENTRYPOINT ["/sbin/init"]
+ENTRYPOINT ["/bin/systemd"]

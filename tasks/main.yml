@@ -6,7 +6,7 @@
   ignore_errors: True
   register: pip_status
 
-- include: download.yml
+- include_tasks: download.yml
   when: pip_status.rc != 0
 
 - name: Check pip version
@@ -15,5 +15,5 @@
   register: pip_installed_version
   when: pip_version != ""
 
-- include: version.yml
-  when: pip_installed_version.stdout != pip_version
+- include_tasks: version.yml
+  when: pip_version != "" and pip_installed_version.stdout != pip_version

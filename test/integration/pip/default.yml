@@ -1,6 +1,5 @@
 ---
 
-- hosts: pip
-  become: True
+- hosts: test-kitchen
   roles:
     - ansible-role-pip
